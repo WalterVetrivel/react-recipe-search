@@ -9,3 +9,11 @@ body {
   color: #2d142c;
   line-height: 1.45;
 }
+
+.Heading {
+	margin-bottom: 2rem;
+}
+
+.RightAlign {
+	text-align: right;
+}

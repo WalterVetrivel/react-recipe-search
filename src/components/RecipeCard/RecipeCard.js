@@ -7,10 +7,10 @@ const recipeCard = props => (
 		<img className="CardImg" src={props.img} alt={props.recipeName} />
 		<div className="CardBody">
 			<h2 className="CardTitle">{props.recipeName}</h2>
-			<p className="Category">
+			<Link to={`/recipes/category/${props.category}`} className="Category">
 				<b>Category: </b>
 				{props.category}
-			</p>
+			</Link>
 			<p className="Tags">
 				<b>Tags: </b>
 				{props.tags.map(tag => (

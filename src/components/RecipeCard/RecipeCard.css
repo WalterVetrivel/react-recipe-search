@@ -1,9 +1,9 @@
 .RecipeCard {
     width: 80%;
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
-	margin: 0 auto;
+    margin: 0 auto;
     margin-bottom: 1rem;
-	border-radius: .5rem;
+    border-radius: .5rem;
     overflow: hidden;
 }
 
@@ -25,6 +25,10 @@
 
 .Category {
     margin-bottom: .5rem;
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
 }
 
 .Tag {
@@ -53,18 +57,18 @@
     border: 1px solid #ee4540;
     border-radius: .5rem;
     margin-top: 1rem;
-	margin-left: auto;
-	transition: all .3s ease-in-out;
+    margin-left: auto;
+    transition: all .3s ease-in-out;
 }
 
 .CardLink:hover,
 .CardLink:active {
-	background-color: #ee4540;
-	color: #f7f7f7;
+    background-color: #ee4540;
+    color: #f7f7f7;
 }
 
 @media (min-width: 992px) {
     .RecipeCard {
-		width: 30%;
-	}
+        width: 30%;
+    }
 }
