@@ -12,6 +12,19 @@ class RecipeList extends React.Component {
 		title: 'Latest recipes'
 	};
 
+	getRecipiesArray = recipes => {
+		return recipes.map(recipe => {
+			return {
+				id: recipe.idMeal,
+				recipeName: recipe.strMeal,
+				category: recipe.strCategory,
+				img: recipe.strMealThumb,
+				tags: recipe.strTags ? recipe.strTags.split(',') : [],
+				origin: recipe.strArea
+			};
+		});
+	};
+
 	async componentDidMount() {
 		try {
 			this.setState({loading: true});
@@ -25,16 +38,7 @@ class RecipeList extends React.Component {
 				});
 			}
 			const result = await axios.get(url);
-			const recipes = result.data.meals.map(meal => {
-				return {
-					id: meal.idMeal,
-					recipeName: meal.strMeal,
-					category: meal.strCategory,
-					img: meal.strMealThumb,
-					tags: meal.strTags ? meal.strTags.split(',') : [],
-					origin: meal.strArea
-				};
-			});
+			const recipes = this.getRecipiesArray(result.data.meals);
 			this.setState({recipes: recipes, loading: false});
 		} catch (err) {
 			console.log(err);
@@ -54,16 +58,7 @@ class RecipeList extends React.Component {
 			});
 			localStorage.setItem('recipeSearchTerm', this.state.searchTerm);
 			const result = await axios.get(`search.php?s=${this.state.searchTerm}`);
-			const recipes = result.data.meals.map(meal => {
-				return {
-					id: meal.idMeal,
-					recipeName: meal.strMeal,
-					category: meal.strCategory,
-					img: meal.strMealThumb,
-					tags: meal.strTags ? meal.strTags.split(',') : [],
-					origin: meal.strArea
-				};
-			});
+			const recipes = this.getRecipiesArray(result.data.meals);
 			this.setState({recipes: recipes, loading: false});
 		} catch (err) {
 			console.log(err);

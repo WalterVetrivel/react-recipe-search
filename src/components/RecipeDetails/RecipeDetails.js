@@ -62,6 +62,9 @@ class RecipeDetails extends React.Component {
 						<p className="BackButton" onClick={this.goBack}>
 							{'<< '}Back
 						</p>
+						<Link className="HomeButton" to="/recipes">
+							Home
+						</Link>
 					</div>
 					<div className="RecipeInformation">
 						<h2 className="RecipeTitle">{this.state.recipe.recipeName}</h2>
@@ -116,6 +119,9 @@ class RecipeDetails extends React.Component {
 						<p className="BackButton" onClick={this.goBack}>
 							{'<< '}Back
 						</p>
+						<Link className="HomeButton" to="/recipes">
+							Home
+						</Link>
 					</div>
 				</React.Fragment>
 			);

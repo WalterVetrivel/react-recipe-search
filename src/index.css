@@ -1,23 +1,33 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: 'Inconsolata', sans-serif;
-  color: #2d142c;
-  line-height: 1.45;
+    font-family: 'Inconsolata', sans-serif;
+    color: #2d142c;
+    line-height: 1.45;
 }
 
 .Heading {
-	margin-bottom: 2rem;
+    margin-bottom: 2rem;
 }
 
 .Center {
-	text-align: center;
+    text-align: center;
 }
 
 .RightAlign {
-	text-align: right;
+    text-align: right;
+}
+
+.BackButton,
+.HomeButton {
+    color: #ee4540;
+    text-decoration: underline;
+    cursor: pointer;
+	margin-bottom: 1rem;
+	display: inline-block;
+	margin-right: 1rem;
 }

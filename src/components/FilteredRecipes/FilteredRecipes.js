@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeListItem from './RecipeListItem/RecipeListItem';
+import { Link } from 'react-router-dom';
 import axios from '../../axios/axios';
 import './FilteredRecipes.css';
 
@@ -63,6 +64,9 @@ class RecipeByCategory extends React.Component {
 				<p className="BackButton" onClick={this.goBack}>
 					{'<< '}Back
 				</p>
+				<Link className="HomeButton" to="/recipes">
+					Home
+				</Link>
 				<h2 className="Heading">
 					Search results for:{' '}
 					<em>
@@ -75,6 +79,9 @@ class RecipeByCategory extends React.Component {
 				<p className="BackButton" onClick={this.goBack}>
 					{'<< '}Back
 				</p>
+				<Link className="HomeButton" to="/recipes">
+					Home
+				</Link>
 			</div>
 		);
 	}

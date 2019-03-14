@@ -19,12 +19,7 @@
     transform: rotate(-2deg);
 }
 
-.BackButton {
-    color: #ee4540;
-    text-decoration: underline;
-    cursor: pointer;
-    margin-bottom: 1rem;
-}
+
 
 .RecipeInformation {
     width: 100%;
