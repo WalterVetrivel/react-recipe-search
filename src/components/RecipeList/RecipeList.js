@@ -62,6 +62,7 @@ class RecipeList extends React.Component {
 			this.setState({recipes: recipes, loading: false});
 		} catch (err) {
 			console.log(err);
+			this.setState({loading: false});
 		}
 	};
 
