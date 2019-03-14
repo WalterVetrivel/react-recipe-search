@@ -1,0 +1,8 @@
+.Recipes {
+    display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: 0 auto;
+	align-items: flex-start;
+	text-align: center;
+}

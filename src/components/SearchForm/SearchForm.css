@@ -1,0 +1,37 @@
+.SearchForm {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.SearchLabel {
+    display: block;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+
+.SearchTerm {
+    padding: .5rem;
+    border: 1px solid #510a32;
+    border-radius: .5rem;
+    outline: none;
+    margin-right: .5rem;
+    font: inherit;
+    transition: all .3s ease-in-out;
+}
+
+.SearchTerm:focus {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+}
+
+.SearchButton {
+    background-color: #510a32;
+    border: 1px solid #510a32;
+    outline: none;
+    color: #f7f7f7;
+    font: inherit;
+    padding: .5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+}
