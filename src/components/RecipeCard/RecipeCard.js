@@ -7,10 +7,14 @@ const recipeCard = props => (
 		<img className="CardImg" src={props.img} alt={props.recipeName} />
 		<div className="CardBody">
 			<h2 className="CardTitle">{props.recipeName}</h2>
-			<Link to={`/recipes/category/${props.category}`} className="Category">
+			<p className="Category">
 				<b>Category: </b>
-				{props.category}
-			</Link>
+				<Link to={`/recipes/category/${props.category}`}>{props.category}</Link>
+			</p>
+			<p className="Origin">
+				<b>Origin: </b>
+				<Link to={`/recipes/origin/${props.origin}`}>{props.origin}</Link>
+			</p>
 			<p className="Tags">
 				<b>Tags: </b>
 				{props.tags.map(tag => (

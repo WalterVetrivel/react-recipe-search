@@ -1,0 +1,24 @@
+.RecipeListItem {
+    width: 100%;
+    display: flex;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
+    justify-content: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.RecipeListBody {
+    padding: 1rem;
+    width: 100%;
+}
+
+.RecipeListTitle {
+    color: #ee4540;
+}
+
+.RecipeListImg {
+    max-height: 8rem;
+	object-fit: cover;
+	display: block;
+}

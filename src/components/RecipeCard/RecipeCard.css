@@ -1,74 +1,84 @@
 .RecipeCard {
-    width: 80%;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .3);
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    border-radius: .5rem;
-    overflow: hidden;
+	width: 80%;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+	margin: 0 auto;
+	margin-bottom: 1rem;
+	border-radius: 0.5rem;
+	overflow: hidden;
 }
 
 .CardImg {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    height: 15rem;
+	width: 100%;
+	display: block;
+	object-fit: cover;
+	height: 15rem;
 }
 
 .CardBody {
-    padding: 1rem;
+	padding: 1rem;
 }
 
 .CardTitle {
-    margin-bottom: 1rem;
-    color: #ee4540;
+	margin-bottom: 1rem;
+	color: #ee4540;
 }
 
-.Category {
-    margin-bottom: .5rem;
-    color: inherit;
-    text-decoration: none;
-    display: block;
-    cursor: pointer;
+.Category,
+.Origin {
+	margin-bottom: 0.5rem;
+	display: block;
+	cursor: pointer;
+}
+
+.Category a,
+.Origin a {
+	color: inherit;
 }
 
 .Tag {
-    display: inline-block;
-    padding: 4px 8px;
-    border: 1px solid #e3e3e3;
-    background-color: #f3f3f3;
-    border-radius: 4px;
-    margin-bottom: .5rem;
+	display: inline-block;
+	padding: 4px 8px;
+	border: 1px solid #e3e3e3;
+	background-color: #f3f3f3;
+	border-radius: 4px;
+	margin-bottom: 0.5rem;
 }
 
 .Tag:not(:last-of-type) {
-    margin-right: .5rem;
+	margin-right: 0.5rem;
 }
 
 .Category b,
 .Tag b {
-    color: #510a32;
+	color: #510a32;
 }
 
 .CardLink {
-    text-decoration: none;
-    display: inline-block;
-    color: #ee4540;
-    padding: .5rem;
-    border: 1px solid #ee4540;
-    border-radius: .5rem;
-    margin-top: 1rem;
-    margin-left: auto;
-    transition: all .3s ease-in-out;
+	text-decoration: none;
+	display: inline-block;
+	color: #ee4540;
+	padding: 0.5rem;
+	border: 1px solid #ee4540;
+	border-radius: 0.5rem;
+	margin-top: 1rem;
+	margin-left: auto;
+	transition: all 0.3s ease-in-out;
 }
 
 .CardLink:hover,
 .CardLink:active {
-    background-color: #ee4540;
-    color: #f7f7f7;
+	background-color: #ee4540;
+	color: #f7f7f7;
+}
+
+@media (min-width: 720px) {
+	.RecipeCard {
+		width: 45%;
+	}
 }
 
 @media (min-width: 992px) {
-    .RecipeCard {
-        width: 30%;
-    }
+	.RecipeCard {
+		width: 30%;
+	}
 }

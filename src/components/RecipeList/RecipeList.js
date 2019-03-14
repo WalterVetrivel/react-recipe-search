@@ -8,7 +8,8 @@ class RecipeList extends React.Component {
 	state = {
 		recipes: [],
 		searchTerm: '',
-		loading: false
+		loading: false,
+		title: 'Latest recipes'
 	};
 
 	async componentDidMount() {
@@ -18,7 +19,10 @@ class RecipeList extends React.Component {
 			const lastSearchTerm = localStorage.getItem('recipeSearchTerm');
 			if (lastSearchTerm) {
 				url = `search.php?s=${lastSearchTerm}`;
-				this.setState({searchTerm: lastSearchTerm});
+				this.setState({
+					searchTerm: lastSearchTerm,
+					title: `Search results for: ${lastSearchTerm}`
+				});
 			}
 			const result = await axios.get(url);
 			const recipes = result.data.meals.map(meal => {
@@ -27,7 +31,8 @@ class RecipeList extends React.Component {
 					recipeName: meal.strMeal,
 					category: meal.strCategory,
 					img: meal.strMealThumb,
-					tags: meal.strTags ? meal.strTags.split(',') : []
+					tags: meal.strTags ? meal.strTags.split(',') : [],
+					origin: meal.strArea
 				};
 			});
 			this.setState({recipes: recipes, loading: false});
@@ -43,7 +48,10 @@ class RecipeList extends React.Component {
 	onSearchSubmit = async e => {
 		e.preventDefault();
 		try {
-			this.setState({loading: true});
+			this.setState({
+				loading: true,
+				title: `Search results for: ${this.state.searchTerm}`
+			});
 			localStorage.setItem('recipeSearchTerm', this.state.searchTerm);
 			const result = await axios.get(`search.php?s=${this.state.searchTerm}`);
 			const recipes = result.data.meals.map(meal => {
@@ -52,7 +60,8 @@ class RecipeList extends React.Component {
 					recipeName: meal.strMeal,
 					category: meal.strCategory,
 					img: meal.strMealThumb,
-					tags: meal.strTags ? meal.strTags.split(',') : []
+					tags: meal.strTags ? meal.strTags.split(',') : [],
+					origin: meal.strArea
 				};
 			});
 			this.setState({recipes: recipes, loading: false});
@@ -74,6 +83,7 @@ class RecipeList extends React.Component {
 					img={recipe.img}
 					category={recipe.category}
 					tags={recipe.tags}
+					origin={recipe.origin}
 				/>
 			));
 		}
@@ -88,6 +98,7 @@ class RecipeList extends React.Component {
 					value={this.state.searchTerm}
 					onChange={this.onSearchTermChange}
 				/>
+				<h2 className="Heading Center">{this.state.title}</h2>
 				<div className="Recipes">{this.renderRecipes()}</div>
 			</div>
 		);

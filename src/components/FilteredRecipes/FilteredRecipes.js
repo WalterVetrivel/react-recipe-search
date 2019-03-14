@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeListItem from './RecipeListItem/RecipeListItem';
 import axios from '../../axios/axios';
-import './RecipeByCategory.css';
+import './FilteredRecipes.css';
 
 class RecipeByCategory extends React.Component {
 	state = {
@@ -10,10 +10,18 @@ class RecipeByCategory extends React.Component {
 	};
 
 	async componentDidMount() {
+		const filterType = this.props.match.url.split('/')[2];
+		let filter;
+		let url;
+		if (filterType === 'origin') {
+			filter = this.props.match.params.origin;
+			url = `filter.php?a=${filter}`;
+		} else if (filterType === 'category') {
+			filter = this.props.match.params.category;
+			url = `filter.php?c=${filter}`;
+		}
 		try {
 			this.setState({loading: true});
-			const category = this.props.match.params.category;
-			const url = `filter.php?c=${category}`;
 			const result = await axios.get(url);
 			const recipes = result.data.meals.map(meal => {
 				return {
@@ -27,6 +35,10 @@ class RecipeByCategory extends React.Component {
 			console.log(err);
 		}
 	}
+
+	goBack = () => {
+		this.props.history.goBack();
+	};
 
 	renderRecipes = () => {
 		if (this.state.loading) {
@@ -48,8 +60,21 @@ class RecipeByCategory extends React.Component {
 	render() {
 		return (
 			<div className="RecipesByCategory">
-				<h2 className="Heading">Search by category: {this.props.match.params.category}</h2>
+				<p className="BackButton" onClick={this.goBack}>
+					{'<< '}Back
+				</p>
+				<h2 className="Heading">
+					Search results for:{' '}
+					<em>
+						{this.props.match.params.category
+							? this.props.match.params.category
+							: this.props.match.params.origin}
+					</em>
+				</h2>
 				{this.renderRecipes()}
+				<p className="BackButton" onClick={this.goBack}>
+					{'<< '}Back
+				</p>
 			</div>
 		);
 	}

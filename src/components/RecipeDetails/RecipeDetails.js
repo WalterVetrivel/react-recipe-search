@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import axios from '../../axios/axios';
 import './RecipeDetails.css';
 
@@ -32,13 +33,18 @@ class RecipeDetails extends React.Component {
 				tags: meal.strTags ? meal.strTags.split(',') : [],
 				instructions: meal.strInstructions,
 				video: meal.strYoutube.replace('watch?v=', 'embed/'),
-				ingredients: recipeIngredients
+				ingredients: recipeIngredients,
+				origin: meal.strArea
 			};
 			this.setState({recipe, loading: false});
 		} catch (err) {
 			console.log(err);
 		}
 	}
+
+	goBack = () => {
+		this.props.history.goBack();
+	};
 
 	renderRecipeDetails = () => {
 		if (this.state.loading) {
@@ -47,15 +53,29 @@ class RecipeDetails extends React.Component {
 		if (this.state.recipe) {
 			return (
 				<React.Fragment>
-					<img
-						src={this.state.recipe.img}
-						alt={this.state.recipe.recipeName}
-						className="RecipeDetailsImage"
-					/>
+					<div className="RecipeDetailsImgContainer">
+						<img
+							src={this.state.recipe.img}
+							alt={this.state.recipe.recipeName}
+							className="RecipeDetailsImage"
+						/>
+						<p className="BackButton" onClick={this.goBack}>
+							{'<< '}Back
+						</p>
+					</div>
 					<div className="RecipeInformation">
 						<h2 className="RecipeTitle">{this.state.recipe.recipeName}</h2>
 						<div className="RecipeCategory">
-							<h3>Category:</h3> {this.state.recipe.category}
+							<h3>Category:</h3>{' '}
+							<Link to={`/recipes/category/${this.state.recipe.category}`}>
+								{this.state.recipe.category}
+							</Link>
+						</div>
+						<div className="RecipeOrigin">
+							<h3>Origin:</h3>{' '}
+							<Link to={`/recipes/origin/${this.state.recipe.origin}`}>
+								{this.state.recipe.origin}
+							</Link>
 						</div>
 						<h3 className="SubHeading">Ingredients</h3>
 						<table className="IngredientsTable">
@@ -93,6 +113,9 @@ class RecipeDetails extends React.Component {
 								</span>
 							))}
 						</div>
+						<p className="BackButton" onClick={this.goBack}>
+							{'<< '}Back
+						</p>
 					</div>
 				</React.Fragment>
 			);

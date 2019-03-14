@@ -14,6 +14,10 @@ body {
 	margin-bottom: 2rem;
 }
 
+.Center {
+	text-align: center;
+}
+
 .RightAlign {
 	text-align: right;
 }
