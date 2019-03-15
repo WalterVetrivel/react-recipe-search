@@ -19,7 +19,11 @@
     transform: rotate(-2deg);
 }
 
-
+.IngredientImage {
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+}
 
 .RecipeInformation {
     width: 100%;
@@ -33,11 +37,6 @@
 .RecipeCategory,
 .RecipeOrigin {
     margin-bottom: 1rem;
-}
-
-.RecipeCategory a,
-.RecipeOrigin a {
-    color: inherit;
 }
 
 .SubHeading {
@@ -58,6 +57,10 @@
 .IngredientsTable th,
 .IngredientsTable td {
     padding: 0.5rem;
+}
+
+.IngredientsTable td a {
+    color: #ee4540;
 }
 
 .IngredientsTable tr {

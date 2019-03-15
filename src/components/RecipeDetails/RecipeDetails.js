@@ -59,10 +59,10 @@ class RecipeDetails extends React.Component {
 							alt={this.state.recipe.recipeName}
 							className="RecipeDetailsImage"
 						/>
-						<p className="BackButton" onClick={this.goBack}>
+						<p className="BackButton Link" onClick={this.goBack}>
 							{'<< '}Back
 						</p>
-						<Link className="HomeButton" to="/recipes">
+						<Link className="HomeButton Link" to="/recipes">
 							Home
 						</Link>
 					</div>
@@ -70,13 +70,17 @@ class RecipeDetails extends React.Component {
 						<h2 className="RecipeTitle">{this.state.recipe.recipeName}</h2>
 						<div className="RecipeCategory">
 							<h3>Category:</h3>{' '}
-							<Link to={`/recipes/category/${this.state.recipe.category}`}>
+							<Link
+								to={`/recipes/category/${this.state.recipe.category}`}
+								className="Link">
 								{this.state.recipe.category}
 							</Link>
 						</div>
 						<div className="RecipeOrigin">
 							<h3>Origin:</h3>{' '}
-							<Link to={`/recipes/origin/${this.state.recipe.origin}`}>
+							<Link
+								to={`/recipes/origin/${this.state.recipe.origin}`}
+								className="Link">
 								{this.state.recipe.origin}
 							</Link>
 						</div>
@@ -84,6 +88,7 @@ class RecipeDetails extends React.Component {
 						<table className="IngredientsTable">
 							<thead>
 								<tr>
+									<th />
 									<th>Ingredient</th>
 									<th>Quantity</th>
 								</tr>
@@ -91,7 +96,22 @@ class RecipeDetails extends React.Component {
 							<tbody>
 								{this.state.recipe.ingredients.map(ingredient => (
 									<tr key={ingredient.ingredient}>
-										<td>{ingredient.ingredient}</td>
+										<td>
+											<img
+												src={`https://www.themealdb.com/images/ingredients/${
+													ingredient.ingredient
+												}.png`}
+												alt=""
+												className="IngredientImage"
+											/>
+										</td>
+										<td>
+											<Link
+												to={`/recipes/ingredient/${ingredient.ingredient}`}
+												className="Link">
+												{ingredient.ingredient}
+											</Link>
+										</td>
 										<td>{ingredient.quantity}</td>
 									</tr>
 								))}
@@ -116,10 +136,10 @@ class RecipeDetails extends React.Component {
 								</span>
 							))}
 						</div>
-						<p className="BackButton" onClick={this.goBack}>
+						<p className="BackButton Link" onClick={this.goBack}>
 							{'<< '}Back
 						</p>
-						<Link className="HomeButton" to="/recipes">
+						<Link className="HomeButton Link" to="/recipes">
 							Home
 						</Link>
 					</div>

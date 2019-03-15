@@ -30,11 +30,6 @@
 	cursor: pointer;
 }
 
-.Category a,
-.Origin a {
-	color: inherit;
-}
-
 .Tag {
 	display: inline-block;
 	padding: 4px 8px;

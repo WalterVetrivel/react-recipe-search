@@ -14,11 +14,15 @@ class App extends Component {
 				<Header />
 				<Switch>
 					<Route
-						path="/recipes/category/:category"
+						path="/recipes/category/:filter"
 						component={FilteredRecipes}
 					/>
 					<Route
-						path="/recipes/origin/:origin"
+						path="/recipes/origin/:filter"
+						component={FilteredRecipes}
+					/>
+					<Route
+						path="/recipes/ingredient/:filter"
 						component={FilteredRecipes}
 					/>
 					<Route path="/recipes/:id" component={RecipeDetails} />

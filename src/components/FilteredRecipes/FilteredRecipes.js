@@ -1,25 +1,26 @@
 import React from 'react';
 import RecipeListItem from './RecipeListItem/RecipeListItem';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from '../../axios/axios';
 import './FilteredRecipes.css';
 
 class RecipeByCategory extends React.Component {
 	state = {
 		recipes: [],
-		loading: false
+		loading: false,
+		resultsCount: 0
 	};
 
 	async componentDidMount() {
 		const filterType = this.props.match.url.split('/')[2];
-		let filter;
+		let filter = this.props.match.params.filter;
 		let url;
 		if (filterType === 'origin') {
-			filter = this.props.match.params.origin;
 			url = `filter.php?a=${filter}`;
 		} else if (filterType === 'category') {
-			filter = this.props.match.params.category;
 			url = `filter.php?c=${filter}`;
+		} else if (filterType === 'ingredient') {
+			url = `filter.php?i=${filter}`;
 		}
 		try {
 			this.setState({loading: true});
@@ -31,7 +32,11 @@ class RecipeByCategory extends React.Component {
 					img: meal.strMealThumb
 				};
 			});
-			this.setState({recipes: recipes, loading: false});
+			this.setState({
+				recipes: recipes,
+				loading: false,
+				resultsCount: recipes.length
+			});
 		} catch (err) {
 			console.log(err);
 		}
@@ -61,25 +66,21 @@ class RecipeByCategory extends React.Component {
 	render() {
 		return (
 			<div className="RecipesByCategory">
-				<p className="BackButton" onClick={this.goBack}>
+				<p className="BackButton Link" onClick={this.goBack}>
 					{'<< '}Back
 				</p>
-				<Link className="HomeButton" to="/recipes">
+				<Link className="HomeButton Link" to="/recipes">
 					Home
 				</Link>
 				<h2 className="Heading">
-					Search results for:{' '}
-					<em>
-						{this.props.match.params.category
-							? this.props.match.params.category
-							: this.props.match.params.origin}
-					</em>
+					Search results for: <em>{this.props.match.params.filter}</em>
 				</h2>
+				<h3 className="SubHeading">{this.state.resultsCount} recipes found.</h3>
 				{this.renderRecipes()}
-				<p className="BackButton" onClick={this.goBack}>
+				<p className="BackButton Link" onClick={this.goBack}>
 					{'<< '}Back
 				</p>
-				<Link className="HomeButton" to="/recipes">
+				<Link className="HomeButton Link" to="/recipes">
 					Home
 				</Link>
 			</div>
