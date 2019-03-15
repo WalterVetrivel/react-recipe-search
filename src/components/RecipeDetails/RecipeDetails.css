@@ -59,10 +59,6 @@
     padding: 0.5rem;
 }
 
-.IngredientsTable td a {
-    color: #ee4540;
-}
-
 .IngredientsTable tr {
     border-bottom: 1px solid #ccc;
     background-color: #f7f7f7;

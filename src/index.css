@@ -25,18 +25,21 @@ body {
 .BackButton,
 .HomeButton {
     cursor: pointer;
-	margin-bottom: 1rem;
-	display: inline-block;
-	margin-right: 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    margin-right: 1rem;
 }
 
 .Link {
-    color: #ee4540;
+    color: #c72c41;
     text-decoration: none;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .Link:hover {
-    color: #c72c41;
     border-bottom: 1px solid #c72c41;
+}
+
+.NoUnderline:hover {
+    border-bottom: none;
 }

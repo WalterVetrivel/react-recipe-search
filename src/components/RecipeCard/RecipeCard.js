@@ -6,7 +6,11 @@ const recipeCard = props => (
 	<div className="RecipeCard">
 		<img className="CardImg" src={props.img} alt={props.recipeName} />
 		<div className="CardBody">
-			<h2 className="CardTitle">{props.recipeName}</h2>
+			<h2 className="CardTitle">
+				<Link to={`/recipes/${props.id}`} className="Link NoUnderline">
+					{props.recipeName}
+				</Link>
+			</h2>
 			<p className="Category">
 				<b>Category: </b>
 				<Link to={`/recipes/category/${props.category}`} className="Link">

@@ -1,79 +1,95 @@
 .RecipeCard {
-	width: 95%;
-	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-	margin: 0 auto;
-	margin-bottom: 1rem;
-	border-radius: 0.5rem;
-	overflow: hidden;
+    width: 100%;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    transition: all .3s ease-in-out;
+}
+
+.RecipeCard:hover {
+    background-color: #fff;
+    transform: scale(1.01);
+    box-shadow: 0 .55rem 1.05rem rgba(0, 0, 0, 0.3);
+}
+
+.RecipeCard:hover .CardImg {
+    filter: brightness(1);
 }
 
 .CardImg {
-	width: 100%;
-	display: block;
-	object-fit: cover;
-	height: 15rem;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    height: 15rem;
+    filter: brightness(.9);
+    transition: all .3s ease-in-out;
 }
 
 .CardBody {
-	padding: 1rem;
+    padding: 1rem;
 }
 
 .CardTitle {
-	margin-bottom: 1rem;
-	color: #ee4540;
+    margin-bottom: 1rem;
+}
+
+.CardTitle .Link {
+    color: #ee4540;
 }
 
 .Category,
 .Origin {
-	margin-bottom: 0.5rem;
-	display: block;
-	cursor: pointer;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .Tag {
-	display: inline-block;
-	padding: 4px 8px;
-	border: 1px solid #e3e3e3;
-	background-color: #f3f3f3;
-	border-radius: 4px;
-	margin-bottom: 0.5rem;
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #e3e3e3;
+    background-color: #f3f3f3;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
 
 .Tag:not(:last-of-type) {
-	margin-right: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .Category b,
 .Tag b {
-	color: #510a32;
+    color: #510a32;
 }
 
 .CardLink {
-	text-decoration: none;
-	display: inline-block;
-	color: #ee4540;
-	padding: 0.5rem;
-	border: 1px solid #ee4540;
-	border-radius: 0.5rem;
-	margin-top: 1rem;
-	margin-left: auto;
-	transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: inline-block;
+    color: #ee4540;
+    padding: 0.5rem;
+    border: 1px solid #ee4540;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    transition: all 0.3s ease-in-out;
 }
 
 .CardLink:hover,
 .CardLink:active {
-	background-color: #ee4540;
-	color: #f7f7f7;
+    background-color: #ee4540;
+    color: #f7f7f7;
 }
 
 @media (min-width: 720px) {
-	.RecipeCard {
-		width: 45%;
-	}
+    .RecipeCard {
+        width: 45%;
+    }
 }
 
 @media (min-width: 992px) {
-	.RecipeCard {
-		width: 30%;
-	}
+    .RecipeCard {
+        width: 30%;
+    }
 }
